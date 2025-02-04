@@ -20,6 +20,12 @@
   targets.genericLinux.enable = true;
 
   systemd.user.startServices = "sd-switch";
+  systemd.user.targets.tray = {
+		Unit = {
+			Description = "Home Manager System Tray";
+			Requires = [ "graphical-session-pre.target" ];
+		};
+	};
 
   fonts.fontconfig.enable = true;
 
@@ -37,13 +43,16 @@
       firefox
       spotify
 
-      (nerdfonts.override { fonts = [ "Inconsolata" "FiraCode" ]; })
-
+      #(nerdfonts.override { fonts = [ "Inconsolata" "FiraCode" ]; })
+      nerd-fonts.inconsolata
+      nerd-fonts.fira-code
+      
       awscli2
 
-      _1password
+      _1password-cli
       direnv
       difftastic
+      dig
       eza
       fd
       fzf
@@ -53,11 +62,12 @@
       jq
       killall
       lazygit
+      minicom
       p7zip
       ripgrep
-      spotify-player
       tree
       unzip
+      uv
       xclip
       xh
       xz
@@ -73,7 +83,13 @@
     home-manager.enable = true;
     htop.enable = true;
     bat.enable = true;
-    firefox.enable = true;
     spotify-player.enable = true;
+  };
+
+  services.flameshot = {
+    enable = true;
+    settings.General = {
+      showStartupLaunchMessage = false;
+    };
   };
 }
