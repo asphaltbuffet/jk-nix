@@ -1,5 +1,5 @@
 {...}: {
-  programs._1password = {
+  programs._1password-cli = {
     enable = true;
   };
   programs._1password-gui = {

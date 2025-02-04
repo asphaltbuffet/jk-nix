@@ -35,9 +35,11 @@
       firefox
       spotify
 
-      (nerdfonts.override { fonts = [ "Inconsolata" "FiraCode" ]; })
+      #(nerdfonts.override { fonts = [ "Inconsolata" "FiraCode" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.inconsolata
 
-      _1password
+      _1password-cli
       direnv
       difftastic
       eza
