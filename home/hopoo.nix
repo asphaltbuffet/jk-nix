@@ -1,4 +1,10 @@
-{ lib, pkgs, pkgs-stable, ... }: {
+{
+  lib,
+  pkgs,
+  pkgs-stable,
+  ...
+}:
+{
   imports = [
     ../modules/git.nix
     ../modules/eza.nix
@@ -10,7 +16,7 @@
     ../modules/zoxide.nix
   ];
   nixpkgs = {
-    overlays = [];
+    overlays = [ ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
@@ -60,12 +66,11 @@
       xh
       xz
       yazi
-      zellij    
+      zellij
     ];
   };
 
   xdg.enable = true;
-
 
   programs = {
     alacritty.enable = true;

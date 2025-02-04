@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs._1password-cli = {
     enable = true;
   };

@@ -1,4 +1,10 @@
-{ lib, pkgs, pkgs-stable, ... }: {
+{
+  lib,
+  pkgs,
+  pkgs-stable,
+  ...
+}:
+{
   imports = [
     ../modules/git.nix
     ../modules/eza.nix
@@ -10,7 +16,7 @@
     ../modules/zoxide.nix
   ];
   nixpkgs = {
-    overlays = [];
+    overlays = [ ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
@@ -21,11 +27,11 @@
 
   systemd.user.startServices = "sd-switch";
   systemd.user.targets.tray = {
-		Unit = {
-			Description = "Home Manager System Tray";
-			Requires = [ "graphical-session-pre.target" ];
-		};
-	};
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
 
   fonts.fontconfig.enable = true;
 
@@ -46,7 +52,7 @@
       #(nerdfonts.override { fonts = [ "Inconsolata" "FiraCode" ]; })
       nerd-fonts.inconsolata
       nerd-fonts.fira-code
-      
+
       awscli2
 
       _1password-cli
@@ -63,6 +69,8 @@
       killall
       lazygit
       minicom
+      nil
+      nixfmt-rfc-style
       p7zip
       ripgrep
       tree
@@ -72,12 +80,11 @@
       xh
       xz
       yazi
-      zellij    
+      zellij
     ];
   };
 
   xdg.enable = true;
-
 
   programs = {
     home-manager.enable = true;

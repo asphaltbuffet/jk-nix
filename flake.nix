@@ -10,39 +10,40 @@
     };
   };
 
-
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#hostname'
-    homeConfigurations = {
-      "wungus" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {
-          config_id = "wungus";
+  outputs =
+    { nixpkgs, home-manager, ... }:
+    {
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#hostname'
+      homeConfigurations = {
+        "wungus" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            config_id = "wungus";
+          };
+          modules = [ ./home/wungus.nix ];
         };
-        modules = [ ./home/wungus.nix ];
+        "hopoo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            config_id = "hopoo";
+          };
+          modules = [ ./home/hopoo.nix ];
+        };
       };
-      "hopoo" = home-manager.lib.homeManagerConfiguration {
-	pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	extraSpecialArgs = {
-	  config_id = "hopoo";
-	};
-	modules = [ ./home/hopoo.nix ];
-      };
-    };
 
-    nixosConfigurations = {
-      "hopoo" = nixpkgs.lib.nixosSystem {
-        system = "x86_64";
-        modules = [
-	  ./host/hopoo/configuration.nix
-	  ./host/hopoo/hardware-configuration.nix
-	];
+      nixosConfigurations = {
+        "hopoo" = nixpkgs.lib.nixosSystem {
+          system = "x86_64";
+          modules = [
+            ./host/hopoo/configuration.nix
+            ./host/hopoo/hardware-configuration.nix
+          ];
+        };
       };
-    };
 
-    inherit home-manager;
-    inherit (home-manager) packages;
-  };
+      inherit home-manager;
+      inherit (home-manager) packages;
+    };
 
 }
