@@ -18,16 +18,10 @@
       homeConfigurations = {
         "wungus" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            config_id = "wungus";
-          };
           modules = [ ./home/wungus.nix ];
         };
         "hopoo" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            config_id = "hopoo";
-          };
           modules = [ ./home/hopoo.nix ];
         };
       };

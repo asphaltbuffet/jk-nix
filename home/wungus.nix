@@ -1,11 +1,10 @@
 {
-  lib,
   pkgs,
-  pkgs-stable,
   ...
 }:
 {
   imports = [
+    ../modules/broot.nix
     ../modules/git.nix
     ../modules/eza.nix
     ../modules/fzf.nix
@@ -74,6 +73,7 @@
       p7zip
       ripgrep
       tree
+      trippy
       unzip
       uv
       xclip
