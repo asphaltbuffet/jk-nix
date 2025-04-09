@@ -31,14 +31,12 @@
           system = "x86_64";
           modules = [
             ./host/hopoo/configuration.nix
-            ./host/hopoo/hardware-configuration.nix
           ];
         };
-         "wungus" = nixpkgs.lib.nixosSystem {
+        "wungus" = nixpkgs.lib.nixosSystem {
           system = "x86_64";
           modules = [
             ./host/wungus/configuration.nix
-            ./host/wungus/hardware-configuration.nix
           ];
         };
       };
