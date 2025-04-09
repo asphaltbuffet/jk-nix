@@ -88,6 +88,7 @@
   xdg.enable = true;
 
   programs = {
+    alacritty.enable = true;
     home-manager.enable = true;
     htop.enable = true;
     bat.enable = true;
