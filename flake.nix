@@ -34,6 +34,13 @@
             ./host/hopoo/hardware-configuration.nix
           ];
         };
+         "wungus" = nixpkgs.lib.nixosSystem {
+          system = "x86_64";
+          modules = [
+            ./host/wungus/configuration.nix
+            ./host/wungus/hardware-configuration.nix
+          ];
+        };
       };
 
       inherit home-manager;

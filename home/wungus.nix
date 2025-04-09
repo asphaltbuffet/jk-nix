@@ -40,6 +40,7 @@
     stateVersion = "22.11";
     packages = with pkgs; [
       _1password-gui
+      alacritty
       discord
       obsidian
       vscode
