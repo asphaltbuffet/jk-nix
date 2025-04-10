@@ -71,6 +71,7 @@
       minicom
       nil
       nixfmt-rfc-style
+      nh
       p7zip
       ripgrep
       tree
