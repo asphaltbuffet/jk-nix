@@ -5,16 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-94984eb9-c989-424d-b636-a57f7086e0f7".device = "/dev/disk/by-uuid/94984eb9-c989-424d-b636-a57f7086e0f7";
+  boot.initrd.luks.devices."luks-94984eb9-c989-424d-b636-a57f7086e0f7".device =
+    "/dev/disk/by-uuid/94984eb9-c989-424d-b636-a57f7086e0f7";
   networking.hostName = "wungus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -56,13 +57,31 @@
     variant = "";
   };
 
-  services.xserver.videoDrivers = ["displaylink" "modesetting"];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "displaylink"
+    "modesetting"
+  ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    system76.enableAll = true;
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+  };
+
+  services.power-profiles-daemon.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -90,13 +109,21 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack Kelly";
-    extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFKamE24xWtnPe29Q7GpmqwO7LA0U68qk3TS9d49DMaP"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFKamE24xWtnPe29Q7GpmqwO7LA0U68qk3TS9d49DMaP"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Install firefox.
   programs.firefox.enable = true;
 
