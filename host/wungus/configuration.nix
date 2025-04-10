@@ -68,7 +68,6 @@
 
   # Enable sound with pipewire.
   hardware = {
-    pulseaudio.enable = false;
     system76.enableAll = true;
 
     nvidia = {
@@ -81,6 +80,8 @@
   };
 
   services.power-profiles-daemon.enable = false;
+
+  services.pulseaudio.enable = false;
 
   security.rtkit.enable = true;
   services.pipewire = {
