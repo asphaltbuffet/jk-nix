@@ -63,6 +63,9 @@
     "modesetting"
   ];
 
+  # Make sure things like /bin/bash etc exist
+  services.envfs.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
