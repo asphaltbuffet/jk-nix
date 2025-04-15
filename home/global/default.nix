@@ -4,6 +4,10 @@
   ...
 }:
 {
+  imports = [
+    ../bundles/cli
+  ];
+
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
@@ -27,6 +31,7 @@
     username = lib.mkDefault "jack";
     homeDirectory = lib.mkDefault "/home/jack";
     stateVersion = lib.mkDefault "22.11";
+    shell.enableZshIntegration = true;
   };
 
   xdg.enable = true;

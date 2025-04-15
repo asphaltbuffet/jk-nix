@@ -1,0 +1,50 @@
+{
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./bat.nix
+    ./broot.nix
+    ./direnv.nix
+    ./eza.nix
+    ./fzf.nix
+    ./gh.nix
+    ./git.nix
+    ./jujutsu.nix
+    ./ssh.nix
+    ./starship.nix
+    ./zoxide.nix
+    ./zellij.nix
+    ./zsh.nix
+  ];
+
+  home.packages = with pkgs; [
+    bottom
+    difftastic
+    dig
+    eza
+    fd
+    fzf
+    helix
+    htop
+    jq
+    killall
+    lazygit
+    lnav
+    p7zip
+    ripgrep
+    tree
+    trippy
+    unzip
+    xclip
+    xh
+    xz
+    yazi
+    zellij
+
+    nil
+    nixfmt-rfc-style
+    nh
+  ];
+}

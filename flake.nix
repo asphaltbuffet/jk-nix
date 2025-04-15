@@ -11,32 +11,56 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
     {
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#hostname'
-      homeConfigurations = {
-        "wungus" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./home/wungus.nix ];
+      self,
+      nixpkgs,
+      home-manager,
+      systems,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      perSystem = callback: nixpkgs.lib.genAttrs (import systems) (system: callback (pkgs system));
+      flakePath = config: "${config.home.homeDirectory}/code/github.com/jack-kelly/nix-onfig";
+      pkgs =
+        system:
+        import nixpkgs {
+          inherit system;
         };
-        "hopoo" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./home/hopoo.nix ];
-        };
-      };
+      extraSpecialArgs = { inherit flakePath inputs outputs; };
+    in
+    {
+      # Devshell for bootstrapping
+      # Acessible through 'nix develop' or 'nix-shell' (legacy)
+      devShells = perSystem (pkgs: import ./shell.nix { inherit pkgs; });
 
       nixosConfigurations = {
-        "hopoo" = nixpkgs.lib.nixosSystem {
-          system = "x86_64";
-          modules = [
-            ./host/hopoo/configuration.nix
-          ];
-        };
-        "wungus" = nixpkgs.lib.nixosSystem {
-          system = "x86_64";
+        wungus = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
           modules = [
             ./host/wungus/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                inherit extraSpecialArgs;
+                useGlobalPkgs = true;
+                users.jack = import ./home/wungus.nix;
+              };
+            }
+          ];
+        };
+        hopoo = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./host/hopoo/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                inherit extraSpecialArgs;
+                useGlobalPkgs = true;
+                users.jack = import ./home/hopoo.nix;
+              };
+            }
           ];
         };
       };

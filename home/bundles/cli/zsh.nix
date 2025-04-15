@@ -5,7 +5,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
+    dotDir = ".config/zsh";
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
@@ -13,5 +13,13 @@
     history = {
       size = 10000;
     };
+
+    initExtra = ''
+      bindkey  "^[[H"   beginning-of-line
+      bindkey  "^[[F"   end-of-line
+      bindkey  "^[[3~"  delete-char
+      bindkey "^[[1;3C" forward-word
+      bindkey "^[[1;3D" backward-word
+    '';
   };
 }
