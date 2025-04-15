@@ -1,18 +1,16 @@
 {
-  lib,
   pkgs,
-  pkgs-stable,
   ...
 }:
 {
   imports = [
+    ./global
     ../modules/git.nix
     ../modules/eza.nix
     ../modules/fzf.nix
     ../modules/direnv.nix
     ../modules/zsh.nix
     ../modules/starship.nix
-    # ../modules/alacritty.nix
     ../modules/zoxide.nix
   ];
   nixpkgs = {
@@ -23,16 +21,9 @@
     };
   };
 
-  targets.genericLinux.enable = true;
-
-  systemd.user.startServices = "sd-switch";
-
   fonts.fontconfig.enable = true;
 
   home = {
-    username = "jack";
-    homeDirectory = "/home/jack";
-    stateVersion = "22.11";
     packages = with pkgs; [
       alacritty
       _1password-gui
@@ -69,8 +60,6 @@
       zellij
     ];
   };
-
-  xdg.enable = true;
 
   programs = {
     alacritty.enable = true;

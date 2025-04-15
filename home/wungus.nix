@@ -4,15 +4,15 @@
 }:
 {
   imports = [
-    ../modules/broot.nix
-    ../modules/git.nix
-    ../modules/eza.nix
-    ../modules/fzf.nix
-    ../modules/direnv.nix
-    ../modules/zsh.nix
-    ../modules/starship.nix
-    # ../modules/alacritty.nix
-    ../modules/zoxide.nix
+    ./global
+    ../modules/home/broot.nix
+    ../modules/home/git.nix
+    ../modules/home/eza.nix
+    ../modules/home/fzf.nix
+    ../modules/home/direnv.nix
+    ../modules/home/zsh.nix
+    ../modules/home/starship.nix
+    ../modules/home/zoxide.nix
   ];
   nixpkgs = {
     overlays = [ ];
@@ -22,9 +22,6 @@
     };
   };
 
-  targets.genericLinux.enable = true;
-
-  systemd.user.startServices = "sd-switch";
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
@@ -85,8 +82,6 @@
       zellij
     ];
   };
-
-  xdg.enable = true;
 
   programs = {
     alacritty.enable = true;
