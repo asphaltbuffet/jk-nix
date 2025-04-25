@@ -19,6 +19,7 @@
     discord
     obsidian
     firefox
+    signal-desktop
     spotify
 
     nerd-fonts.inconsolata
