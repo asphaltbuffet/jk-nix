@@ -8,16 +8,10 @@
     ../bundles/cli
   ];
 
-  nix = {
-    package = lib.mkDefault pkgs.nix;
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-        "ca-derivations"
-      ];
-    };
-  };
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   targets.genericLinux.enable = true;
 
   systemd.user.startServices = "sd-switch";
