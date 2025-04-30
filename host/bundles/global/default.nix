@@ -32,6 +32,7 @@
       "wheel"
       "dialout"
       "video"
+      "docker"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFKamE24xWtnPe29Q7GpmqwO7LA0U68qk3TS9d49DMaP"

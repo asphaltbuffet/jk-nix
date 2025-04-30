@@ -32,5 +32,7 @@
 
   services.power-profiles-daemon.enable = false;
 
+  virtualisation.docker.enable = true;
+
   system.stateVersion = "24.11";
 }
