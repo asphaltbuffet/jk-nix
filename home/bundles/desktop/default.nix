@@ -21,6 +21,7 @@
     firefox
     signal-desktop
     spotify
+    vesktop
 
     nerd-fonts.inconsolata
     nerd-fonts.fira-code
