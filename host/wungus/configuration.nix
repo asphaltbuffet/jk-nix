@@ -32,6 +32,8 @@
 
   services.power-profiles-daemon.enable = false;
 
+  services.tailscale.enable = true;
+
   virtualisation.docker.enable = true;
 
   system.stateVersion = "24.11";
