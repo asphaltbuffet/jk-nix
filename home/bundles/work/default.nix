@@ -6,5 +6,6 @@
     uv
 
     slack
+    gemini-cli
   ];
 }
