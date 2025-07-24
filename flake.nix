@@ -21,7 +21,7 @@
     let
       inherit (self) outputs;
       perSystem = callback: nixpkgs.lib.genAttrs (import systems) (system: callback (pkgs system));
-      flakePath = config: "${config.home.homeDirectory}/code/github.com/jack-kelly/nix-onfig";
+      flakePath = config: "${config.home.homeDirectory}/code/github.com/jack-kelly/nix-config";
       pkgs =
         system:
         import nixpkgs {
