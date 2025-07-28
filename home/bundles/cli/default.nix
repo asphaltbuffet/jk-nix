@@ -28,6 +28,7 @@
     fzf
     helix
     htop
+    ijq
     jq
     killall
     lazygit
