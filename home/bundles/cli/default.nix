@@ -33,6 +33,7 @@
     killall
     lazygit
     lnav
+    ngrep
     p7zip
     ripgrep
     tree
