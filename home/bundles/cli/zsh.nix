@@ -1,11 +1,11 @@
-{ ... }:
+{ config, ... }:
 {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch";
