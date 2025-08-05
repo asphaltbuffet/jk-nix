@@ -26,6 +26,7 @@
     eza
     fd
     fzf
+    gnupg
     helix
     htop
     ijq
