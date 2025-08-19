@@ -26,6 +26,7 @@
     eza
     fd
     fzf
+    gnumake
     gnupg
     helix
     htop
