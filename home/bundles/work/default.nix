@@ -6,6 +6,7 @@
     uv
 
     slack
+    saleae-logic
     gemini-cli
   ];
 }
