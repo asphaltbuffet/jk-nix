@@ -37,6 +37,7 @@
     lnav
     ngrep
     p7zip
+    pciutils
     ripgrep
     tree
     trippy
