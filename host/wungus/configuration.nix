@@ -19,6 +19,7 @@
   ];
 
   hardware = {
+    graphics.enable = true;
     system76.enableAll = true;
 
     nvidia = {
