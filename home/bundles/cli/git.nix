@@ -21,7 +21,7 @@
 
     includes = [
       {
-        condition = "gitdir:~/code/github.com/jack-kelly";
+        condition = "gitdir:~/code/github.com/jack-kelly/";
         contents = {
           user = {
             email = "jpk.lly@gmail.com";
@@ -29,7 +29,7 @@
         };
       }
       {
-        condition = "gitdir:~/code/github.com/utilidata";
+        condition = "gitdir:~/code/github.com/utilidata/";
         contents = {
           user = {
             email = "jkelly@utilidata.com";
