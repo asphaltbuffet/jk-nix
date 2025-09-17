@@ -48,7 +48,22 @@
               };
             }
           ];
+        };       
+        ues-safe-travels = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./host/ues-safe-travels/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                inherit extraSpecialArgs;
+                useGlobalPkgs = true;
+                users.jack = import ./home/ues-safe-travels.nix;
+              };
+            }
+          ];
         };
+  
         hopoo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
