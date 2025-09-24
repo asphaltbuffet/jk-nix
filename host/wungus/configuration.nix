@@ -26,7 +26,7 @@
       modesetting.enable = true;
       powerManagement.enable = true;
       powerManagement.finegrained = true;
-      open = true;
+      open = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
@@ -43,6 +43,8 @@
       export __GLX_VENDOR_LIBRARY_NAME=nvidia
       exec "$@"
     '')
+    cudaPackages.cudatoolkit
+    cudaPackages.cudnn
   ];
 
   services.power-profiles-daemon.enable = false;
