@@ -27,6 +27,7 @@
 
   programs = {
     steam.enable = true;
+    noisetorch.enable = true;
     appimage = {
       binfmt = true;
       enable = true;
