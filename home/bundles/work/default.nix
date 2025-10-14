@@ -7,6 +7,7 @@
     minicom
     uv
 
+    claude-code
     slack
     saleae-logic
     gemini-cli
