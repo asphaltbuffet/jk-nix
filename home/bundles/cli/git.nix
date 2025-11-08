@@ -5,18 +5,17 @@
 {
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
-    userName = "Jack Kelly";
+    package = pkgs.gitFull;
 
-    aliases = {
-      p = "pull --ff-only";
-      ff = "merge --ff-only";
-      graph = "log --decorate --oneline --graph";
-    };
-
-    extraConfig = {
+    settings = {
+      user.name = "Jack Kelly";
       init.defaultBranch = "main";
       rerere.enabled = true;
+      alias = {
+        p = "pull --ff-only";
+        ff = "merge --ff-only";
+        graph = "log --decorate --oneline --graph";
+      };
     };
 
     includes = [
@@ -38,11 +37,16 @@
       }
     ];
 
-    difftastic.enable = true;
     lfs.enable = true;
 
     ignores = [
       ".direnv"
     ];
   };
+
+  programs.difftastic = {
+    enable = true;
+    git.enable = true;
+  };
+
 }

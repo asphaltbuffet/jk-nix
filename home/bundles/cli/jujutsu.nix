@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       user = {
-        name = config.programs.git.userName;
+        name = config.programs.git.settings.user.name;
       };
     };
   };
