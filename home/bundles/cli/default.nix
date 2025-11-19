@@ -9,6 +9,7 @@
     ./direnv.nix
     ./eza.nix
     ./fzf.nix
+    ./go.nix
     ./gh.nix
     ./git.nix
     ./jujutsu.nix
