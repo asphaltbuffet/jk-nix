@@ -27,6 +27,7 @@
     eza
     fd
     fzf
+    gcc
     gnumake
     gnupg
     helix
