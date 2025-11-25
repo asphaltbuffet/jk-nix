@@ -1,10 +1,11 @@
-{ config, ... }:
+{ ... }:
 {
   programs.jujutsu = {
     enable = true;
     settings = {
       user = {
-        name = config.programs.git.settings.user.name;
+        name = "Jack Kelly";
+        email = "jpk.lly@gmail.com";
       };
     };
   };
