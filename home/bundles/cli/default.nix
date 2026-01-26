@@ -51,7 +51,7 @@
     zellij
 
     nil
-    nixfmt-rfc-style
+    nixfmt
     nh
   ];
 }
