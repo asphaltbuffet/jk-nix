@@ -8,7 +8,7 @@
     dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      update = "sudo nixos-rebuild switch --flake .#$(hostname)";
     };
     history = {
       size = 100000;
