@@ -15,7 +15,6 @@
   services.xserver.videoDrivers = [
     "nvidia"
     "displaylink"
-    "modesetting"
   ];
 
   hardware = {
