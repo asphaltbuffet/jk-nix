@@ -2,7 +2,9 @@
 {
   imports = [
     ./alacritty.nix
-    ./flameshot.nix
+
+    # removing for now until we figure out wayland stuff :(
+    # ./flameshot.nix
   ];
 
   systemd.user.targets.tray = {
