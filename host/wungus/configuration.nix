@@ -27,7 +27,7 @@
       powerManagement.finegrained = true;
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
         offload.enable = true;
         intelBusId = "PCI:0:2:0";
