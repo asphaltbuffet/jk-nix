@@ -33,6 +33,7 @@
     helix
     htop
     ijq
+    just
     jq
     killall
     lazygit
