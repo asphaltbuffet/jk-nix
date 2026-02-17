@@ -12,6 +12,7 @@
     ./go.nix
     ./gh.nix
     ./git.nix
+    ./helix.nix
     ./jujutsu.nix
     ./ssh.nix
     ./starship.nix
@@ -30,7 +31,6 @@
     gcc
     gnumake
     gnupg
-    helix
     htop
     ijq
     just
