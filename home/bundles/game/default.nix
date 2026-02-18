@@ -4,6 +4,6 @@
     lutris
     heroic
     legendary-gl
-    wineWowPackages.unstableFull
+    wineWow64Packages.unstableFull
   ];
 }
