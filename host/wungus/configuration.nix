@@ -2,7 +2,7 @@
 {
   imports = [
     ../bundles/global
-    ../bundles/desktop
+    ../bundles/i3
     ./hardware-configuration.nix
   ];
   networking.hostName = "wungus";

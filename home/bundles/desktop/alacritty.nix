@@ -17,12 +17,12 @@
         decorations = "buttonless";
       };
 
-      font = {
-        size = 12.0;
-        normal.family = "FiraCode Nerd Font";
-        bold.family = "FiraCode Nerd Font";
-        italic.family = "FiraCode Nerd Font";
-      };
+      # font = {
+      #   size = 12;
+      #   normal.family = "FiraCode Nerd Font";
+      #   bold.family = "FiraCode Nerd Font";
+      #   italic.family = "FiraCode Nerd Font";
+      # };
     };
   };
 }
