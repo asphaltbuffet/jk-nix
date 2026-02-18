@@ -54,7 +54,6 @@
         [ "wungus" "ues-safe-travels" "hopoo" ]
         mkHost;
 
-      inherit home-manager;
       inherit (home-manager) packages;
     };
 
