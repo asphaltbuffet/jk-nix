@@ -33,6 +33,7 @@
     gnupg
     htop
     ijq
+    iperf3
     just
     jq
     killall
