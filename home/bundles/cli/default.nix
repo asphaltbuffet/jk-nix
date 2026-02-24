@@ -40,11 +40,13 @@
     lnav
     ngrep
     p7zip
+    minicom
     pciutils
     ripgrep
     tree
     trippy
     unzip
+    usbutils
     xclip
     xh
     xz

@@ -4,7 +4,6 @@
     awscli2
     openvpn
     networkmanager-openvpn
-    minicom
     uv
 
     claude-code
