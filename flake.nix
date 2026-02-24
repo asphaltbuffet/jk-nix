@@ -57,9 +57,7 @@
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = perSystem (pkgs: import ./shell.nix { inherit pkgs; });
 
-      nixosConfigurations = nixpkgs.lib.genAttrs
-        [ "wungus" "ues-safe-travels" "hopoo" ]
-        mkHost;
+      nixosConfigurations = nixpkgs.lib.genAttrs [ "wungus" "ues-safe-travels" "hopoo" "bungus" ] mkHost;
 
       inherit (home-manager) packages;
     };
