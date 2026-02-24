@@ -17,7 +17,6 @@
     ./ssh.nix
     ./starship.nix
     ./zoxide.nix
-    ./zellij.nix
     ./zsh.nix
   ];
 
@@ -50,8 +49,6 @@
     xh
     xz
     yazi
-    zellij
-
     nil
     nixfmt
     nh

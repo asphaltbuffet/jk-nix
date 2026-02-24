@@ -2,6 +2,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./zellij.nix
 
     # removing for now until we figure out wayland stuff :(
     # ./flameshot.nix
@@ -23,6 +24,7 @@
     firefox
     signal-desktop
     spotify
+    zellij
 
     nerd-fonts.inconsolata
     nerd-fonts.fira-code
