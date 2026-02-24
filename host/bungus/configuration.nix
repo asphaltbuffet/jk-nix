@@ -4,6 +4,6 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "hopoo"; # Define your hostname.
+  networking.hostName = "bungus"; # Define your hostname.
   system.stateVersion = "24.05";
 }
