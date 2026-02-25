@@ -40,7 +40,7 @@
     lnav
     ngrep
     p7zip
-    minicom
+    tio
     pciutils
     ripgrep
     tree
