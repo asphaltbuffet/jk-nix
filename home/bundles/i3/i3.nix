@@ -105,6 +105,9 @@ in
         "${mod}+Shift+9" = "move container to workspace number ${ws9}";
         "${mod}+Shift+0" = "move container to workspace number ${ws10}";
 
+        "${mod}+Shift+greater" = "move workspace to output right";
+        "${mod}+Shift+less" = "move workspace to output left";
+
         # Reload / restart
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
@@ -145,6 +148,9 @@ in
       };
 
       assigns = {
+        "${ws2}" = [
+          { class = "^obsidian$"; }
+        ];
         "${ws9}" = [
           { class = "^discord$"; }
           { class = "^Signal$"; }
