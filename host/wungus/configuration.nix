@@ -18,9 +18,9 @@
   ];
 
   hardware = {
+    keyboard.zsa.enable = true;
     graphics.enable = true;
     system76.enableAll = true;
-
     nvidia = {
       modesetting.enable = true;
       powerManagement.enable = true;
@@ -44,6 +44,8 @@
     '')
     cudaPackages.cudatoolkit
     cudaPackages.cudnn
+    wally-cli
+    keymapp
   ];
 
   services.power-profiles-daemon.enable = false;
