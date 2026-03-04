@@ -148,17 +148,63 @@ in
       };
 
       workspaceOutputAssign = [
-        { workspace = ws1; output = [ "DVI-I-3-2" "DVI-I-1-1" "DP-1" "eDP-1" ]; }
-        { workspace = ws2; output = [ "DVI-I-3-2" "DVI-I-1-1" "DP-1" "eDP-1" ]; }
-        { workspace = ws3; output = [ "DVI-I-2-1" "DVI-I-2-2" "DP-1" "eDP-1" ]; }
-        { workspace = ws4; output = [ "DVI-I-2-1" "DVI-I-2-2" "DP-1" "eDP-1" ]; }
-        { workspace = ws5; output = [ "DVI-I-2-1" "DVI-I-2-2" "DP-1" "eDP-1" ]; }
-        { workspace = ws9; output = "eDP-1"; }
-        { workspace = ws10; output = "eDP-1"; }
+        {
+          workspace = ws1;
+          output = [
+            "DVI-I-3-2"
+            "DVI-I-1-1"
+            "DP-1"
+            "eDP-1"
+          ];
+        }
+        {
+          workspace = ws2;
+          output = [
+            "DVI-I-3-2"
+            "DVI-I-1-1"
+            "DP-1"
+            "eDP-1"
+          ];
+        }
+        {
+          workspace = ws3;
+          output = [
+            "DVI-I-2-1"
+            "DVI-I-2-2"
+            "DP-1"
+            "eDP-1"
+          ];
+        }
+        {
+          workspace = ws4;
+          output = [
+            "DVI-I-2-1"
+            "DVI-I-2-2"
+            "DP-1"
+            "eDP-1"
+          ];
+        }
+        {
+          workspace = ws5;
+          output = [
+            "DVI-I-2-1"
+            "DVI-I-2-2"
+            "DP-1"
+            "eDP-1"
+          ];
+        }
+        {
+          workspace = ws9;
+          output = "eDP-1";
+        }
+        {
+          workspace = ws10;
+          output = "eDP-1";
+        }
       ];
 
       assigns = {
-        "${ws2}" = [
+        "${ws1}" = [
           { class = "^obsidian$"; }
         ];
         "${ws4}" = [
