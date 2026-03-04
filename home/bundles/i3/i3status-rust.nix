@@ -37,17 +37,6 @@
             format = " $icon $utilization $temperature ";
           }
           {
-            block = "net";
-            format = " $icon $ssid $signal_strength $ip ";
-            missing_format = " $icon down ";
-          }
-          {
-            block = "bluetooth";
-            mac = "placeholder";
-            format = " $icon $name ";
-            disconnected_format = " $icon off ";
-          }
-          {
             block = "sound";
             format = " $icon $volume ";
           }
