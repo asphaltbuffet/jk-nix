@@ -27,7 +27,7 @@ update:
 
 # Garbage collect old generations
 clean:
-    nh clean all
+    nh clean all --keep 3
 
 # Format nix files
 fmt:
