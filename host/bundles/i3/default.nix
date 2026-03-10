@@ -4,7 +4,12 @@
     ../desktop/_base.nix
   ];
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "doom";
+    };
+  };
 
   services.xserver.windowManager.i3 = {
     enable = true;
