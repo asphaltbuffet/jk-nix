@@ -50,6 +50,8 @@
 
   services.power-profiles-daemon.enable = false;
 
+  programs.nix-ld.enable = true;
+
   services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
