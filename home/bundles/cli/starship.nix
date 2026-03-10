@@ -4,6 +4,11 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
+      hostname = {
+        ssh_only = false;
+        format = "[$hostname]($style) ";
+      };
+
       # Disable built-in git modules (replaced by custom modules below)
       git_status.disabled = true;
       git_commit.disabled = true;
