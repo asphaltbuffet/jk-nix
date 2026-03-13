@@ -7,6 +7,7 @@
     syntaxHighlighting.enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
+      cat = "bat";
       ll = "ls -l";
       update = "sudo nixos-rebuild switch --flake .#$(hostname)";
     };
