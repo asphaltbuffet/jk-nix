@@ -48,6 +48,8 @@
     keymapp
   ];
 
+  services.libinput.touchpad.disableWhileTyping = true;
+
   services.power-profiles-daemon.enable = false;
 
   programs.nix-ld.enable = true;
