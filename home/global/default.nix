@@ -24,7 +24,7 @@
   home = {
     username = lib.mkDefault "jack";
     homeDirectory = lib.mkDefault "/home/jack";
-    stateVersion = lib.mkDefault "22.11";
+    stateVersion = lib.mkDefault "26.05";
     shell.enableZshIntegration = true;
   };
 
