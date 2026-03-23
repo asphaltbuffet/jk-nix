@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   imports = [
     ./alacritty.nix
@@ -17,16 +17,17 @@
 
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     alacritty
-    discord
-    obsidian
     firefox
     signal-desktop
-    spotify
     zellij
 
     nerd-fonts.inconsolata
     nerd-fonts.fira-code
-  ];
+  ]) ++ (with pkgs-stable; [
+    discord
+    obsidian
+    spotify
+  ]);
 }

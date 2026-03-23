@@ -4,6 +4,7 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +33,12 @@
         import nixpkgs {
           inherit system;
         };
-      extraSpecialArgs = { inherit flakePath inputs outputs; };
+      pkgs-stable =
+        system:
+        import inputs.nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
       mkHost =
         hostname:
         nixpkgs.lib.nixosSystem {
@@ -41,14 +47,17 @@
             ./host/${hostname}/configuration.nix
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
-            {
+            ({ config, ... }: {
               home-manager = {
-                inherit extraSpecialArgs;
+                extraSpecialArgs = {
+                  inherit flakePath inputs outputs;
+                  pkgs-stable = pkgs-stable config.nixpkgs.hostPlatform.system;
+                };
                 useGlobalPkgs = true;
                 users.jack = import ./home/${hostname}.nix;
                 sharedModules = [ stylix.homeModules.stylix ];
               };
-            }
+            })
           ];
         };
     in

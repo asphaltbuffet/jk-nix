@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, pkgs-stable, lib, ... }:
 let
   mod = "Mod4";
   terminal = "alacritty";
@@ -274,11 +274,11 @@ in
 
         # Autostart apps
         {
-          command = "${pkgs.obsidian}/bin/obsidian";
+          command = "${pkgs-stable.obsidian}/bin/obsidian";
           notification = false;
         }
         {
-          command = "${pkgs.discord}/bin/discord";
+          command = "${pkgs-stable.discord}/bin/discord";
           notification = false;
         }
         {
@@ -286,7 +286,7 @@ in
           notification = false;
         }
         {
-          command = "${pkgs.spotify}/bin/spotify";
+          command = "${pkgs-stable.spotify}/bin/spotify";
           notification = false;
         }
         {
@@ -298,7 +298,7 @@ in
           notification = false;
         }
         {
-          command = "${pkgs.slack}/bin/slack";
+          command = "${pkgs-stable.slack}/bin/slack";
           notification = false;
         }
       ];
