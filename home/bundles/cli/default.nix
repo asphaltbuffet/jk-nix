@@ -6,6 +6,7 @@
   imports = [
     ./bat.nix
     ./broot.nix
+    ./claude.nix
     ./direnv.nix
     ./eza.nix
     ./fzf.nix
