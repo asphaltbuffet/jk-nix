@@ -28,7 +28,7 @@
         "Bash(jj log:*)"
         "Bash(jj diff:*)"
         "Bash(jj show:*)"
-        "Bash(jj branch list:*)"
+        "Bash(jj bookmark list:*)"
         "Bash(nix eval:*)"
         "Bash(nix flake show:*)"
         "Bash(nix flake metadata:*)"
