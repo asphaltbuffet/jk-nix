@@ -1,7 +1,7 @@
 { pkgs, pkgs-stable, lib, ... }:
 let
   mod = "Mod4";
-  terminal = "alacritty";
+  terminal = "ghostty";
   launcher = "rofi -show drun";
 
   left = "h";
@@ -290,7 +290,7 @@ in
           notification = false;
         }
         {
-          command = "i3-msg 'workspace ${ws3}; exec ${pkgs.alacritty}/bin/alacritty'";
+          command = "i3-msg 'workspace ${ws3}; exec ${pkgs.ghostty}/bin/ghostty'";
           notification = false;
         }
         {

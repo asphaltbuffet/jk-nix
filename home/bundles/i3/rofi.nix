@@ -2,7 +2,7 @@
 {
   programs.rofi = {
     enable = true;
-    terminal = "alacritty";
+    terminal = "ghostty";
     extraConfig = {
       show-icons = true;
       icon-theme = "Papirus-Dark";
