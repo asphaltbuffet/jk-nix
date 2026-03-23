@@ -27,9 +27,24 @@
         "Bash(jj diff:*)"
         "Bash(jj show:*)"
         "Bash(jj branch list:*)"
+        "Bash(nix eval:*)"
+        "Bash(nix flake show:*)"
+        "Bash(nix flake metadata:*)"
+        "Bash(nix flake info:*)"
+        "Bash(nix flake check:*)"
+        "Bash(nix search:*)"
+        "Bash(nix path-info:*)"
+        "Bash(nix derivation show:*)"
+        "Bash(nix store ls:*)"
+        "Bash(nix why-depends:*)"
+        "Bash(nixos-option:*)"
+        "Bash(nix build --dry-run:*)"
+        "Bash(nix log:*)"
+        "Bash(nix diff-closures:*)"
       ];
       additionalDirectories = [
         "/home/jack/code"
+        "/nix"
       ];
     };
     enabledPlugins = {
