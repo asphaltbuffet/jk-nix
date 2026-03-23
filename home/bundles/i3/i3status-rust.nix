@@ -5,7 +5,7 @@
     bars = {
       default = {
         theme = "ctp-mocha";
-        icons = "awesome6";
+        icons = "material-nf";
         blocks = [
           {
             block = "focused_window";
