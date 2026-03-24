@@ -45,6 +45,7 @@
       gtk.enable = true;
       i3.enable = true;
       feh.enable = true;
+      qt.enable = false;
     };
   };
 
