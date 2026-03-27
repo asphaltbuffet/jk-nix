@@ -43,6 +43,18 @@
         "Bash(nix build --dry-run:*)"
         "Bash(nix log:*)"
         "Bash(nix diff-closures:*)"
+        "Bash(gh pr view:*)"
+        "Bash(gh pr list:*)"
+        "Bash(gh pr diff:*)"
+        "Bash(gh pr checks:*)"
+        "Bash(gh issue view:*)"
+        "Bash(gh issue list:*)"
+        "Bash(gh run list:*)"
+        "Bash(gh run view:*)"
+        "Bash(gh release list:*)"
+        "Bash(gh release view:*)"
+        "Bash(gh repo view:*)"
+        "Bash(gh api repos:*)"
       ];
       additionalDirectories = [
         "/home/jack/code"
