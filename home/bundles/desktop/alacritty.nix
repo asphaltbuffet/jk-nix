@@ -16,13 +16,6 @@
         padding.y = 10;
         decorations = "buttonless";
       };
-
-      # font = {
-      #   size = 12;
-      #   normal.family = "FiraCode Nerd Font";
-      #   bold.family = "FiraCode Nerd Font";
-      #   italic.family = "FiraCode Nerd Font";
-      # };
     };
   };
 }

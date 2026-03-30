@@ -1,7 +1,7 @@
 { pkgs, pkgs-stable, ... }:
 {
   imports = [
-    ./ghostty.nix
+    ./alacritty.nix
     ./zellij.nix
 
     # removing for now until we figure out wayland stuff :(
@@ -18,7 +18,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = (with pkgs; [
-    ghostty
+    alacritty
     firefox
     signal-desktop
     zellij

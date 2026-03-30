@@ -40,7 +40,7 @@
     };
 
     targets = {
-      ghostty.enable = true;
+      alacritty.enable = true;
       rofi.enable = true;
       gtk.enable = true;
       i3.enable = true;

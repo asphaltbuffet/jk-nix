@@ -1,16 +1,10 @@
 {
   pkgs,
+  lib,
   ...
 }:
-{
-  home.file.".claude/CLAUDE.md".text = ''
-    All repos live under ~/code/ with paths matching the git remote URL.
-    For example, the repo `github.com/<org>/<repo>` is cloned to `~/code/github.com/<org>/<repo>`.
-
-    For repos under ~/code/github.com/utilidata: only some developers on the team use Nix. Default documentation and setup instructions should target a standard Ubuntu/Debian-like environment. Nix flakes should be kept correct and up to date, but documented as an alternative path, not the primary one.
-  '';
-
-  home.file.".claude/settings.json".text = builtins.toJSON {
+let
+  claudeSettings = pkgs.writeText "claude-settings.json" (builtins.toJSON {
     permissions = {
       allow = [
         "WebSearch"
@@ -64,5 +58,18 @@
     enabledPlugins = {
       "rust-analyzer-lsp@claude-plugins-official" = true;
     };
-  };
+  });
+in
+{
+  home.file.".claude/CLAUDE.md".text = ''
+    All repos live under ~/code/ with paths matching the git remote URL.
+    For example, the repo `github.com/<org>/<repo>` is cloned to `~/code/github.com/<org>/<repo>`.
+
+    For repos under ~/code/github.com/utilidata: only some developers on the team use Nix. Default documentation and setup instructions should target a standard Ubuntu/Debian-like environment. Nix flakes should be kept correct and up to date, but documented as an alternative path, not the primary one.
+  '';
+
+  home.activation.claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD install -Dm644 ${claudeSettings} $HOME/.claude/settings.json
+    $DRY_RUN_CMD chmod u+w $HOME/.claude/settings.json
+  '';
 }
