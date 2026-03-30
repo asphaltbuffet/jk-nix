@@ -29,7 +29,7 @@
         name = "Noto Serif";
       };
       sizes = {
-        terminal = 10;
+        terminal = 8;
         applications = 11;
         popups = 11;
       };
