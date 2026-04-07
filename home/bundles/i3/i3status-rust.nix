@@ -50,6 +50,13 @@
           }
           {
             block = "time";
+            interval = 60;
+            # Formats to "UTC: 12:00" - adjust format string as needed
+            format = " $icon UTC: $timestamp.datetime(f:'%H:%M') ";
+            timezone = "UTC"; # This forces UTC
+          }
+          {
+            block = "time";
             interval = 30;
             format = " $icon $timestamp.datetime(f:'%a %m/%d %I:%M %p') ";
           }
