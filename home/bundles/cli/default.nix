@@ -33,6 +33,9 @@
     gnupg
     htop
     ijq
+    arp-scan
+    bandwhich
+    hping
     iperf3
     just
     jq
@@ -40,14 +43,19 @@
     lazygit
     lnav
     ngrep
+    nmap
     p7zip
     tio
     pciutils
     ripgrep
+    socat
+    tcpdump
     tree
     trippy
     unzip
     usbutils
+    whois
+    wireshark-cli
     xclip
     xh
     xz
