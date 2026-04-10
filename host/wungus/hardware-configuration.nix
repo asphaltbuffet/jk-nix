@@ -21,7 +21,7 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "fuse" ];
   boot.kernelModules = [
     "kvm-intel"
     "iwlwifi"
