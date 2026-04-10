@@ -61,7 +61,7 @@
     xz
     yazi
     nil
-    nixfmt
+    nixfmt-tree
     nh
   ];
 }

@@ -31,7 +31,7 @@ clean:
 
 # Format nix files
 fmt:
-    nixfmt .
+    treefmt .
 
 # Run flake checks
 check:
