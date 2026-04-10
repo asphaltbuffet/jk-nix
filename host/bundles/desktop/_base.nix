@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./_1password.nix
@@ -22,6 +22,13 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+  services.upower.enable = true;
 
   programs.firefox.enable = true;
 }
