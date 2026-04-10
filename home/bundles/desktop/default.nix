@@ -17,17 +17,19 @@
 
   fonts.fontconfig.enable = true;
 
-  home.packages = (with pkgs; [
-    alacritty
-    firefox
-    signal-desktop
-    zellij
+  home.packages =
+    (with pkgs; [
+      alacritty
+      firefox
+      signal-desktop
+      zellij
 
-    nerd-fonts.inconsolata
-    nerd-fonts.fira-code
-  ]) ++ (with pkgs-stable; [
-    discord
-    obsidian
-    spotify
-  ]);
+      nerd-fonts.inconsolata
+      nerd-fonts.fira-code
+    ])
+    ++ (with pkgs-stable; [
+      discord
+      obsidian
+      spotify
+    ]);
 }

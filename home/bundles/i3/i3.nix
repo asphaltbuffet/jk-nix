@@ -1,4 +1,9 @@
-{ pkgs, pkgs-stable, lib, ... }:
+{
+  pkgs,
+  pkgs-stable,
+  lib,
+  ...
+}:
 let
   mod = "Mod4";
   terminal = "alacritty";

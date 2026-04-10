@@ -45,6 +45,10 @@ inputs:
 hosts:
     @ls -1 host/*/configuration.nix | sed 's|host/||;s|/configuration.nix||'
 
+# Build a recovery ISO for a host
+iso host:
+    nix build .#iso-{{host}} -L
+
 # Show current NixOS generation
 generation:
     nixos-rebuild list-generations | head -5

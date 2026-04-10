@@ -7,9 +7,6 @@
   ];
   networking.hostName = "wungus";
 
-  boot.initrd.luks.devices."luks-94984eb9-c989-424d-b636-a57f7086e0f7".device =
-    "/dev/disk/by-uuid/94984eb9-c989-424d-b636-a57f7086e0f7";
-
   # System 76 adder-ws specific hardware configuration
   # including nvidia and system76 firmware
   services.xserver.videoDrivers = [

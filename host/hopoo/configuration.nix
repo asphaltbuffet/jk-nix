@@ -4,7 +4,7 @@
     ../bundles/desktop
     ./hardware-configuration.nix
   ];
-  
+
   services.xserver.videoDrivers = [
     "displaylink"
   ];

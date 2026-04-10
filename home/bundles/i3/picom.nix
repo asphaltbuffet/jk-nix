@@ -6,7 +6,10 @@
     vSync = true;
 
     shadow = true;
-    shadowOffsets = [ (-7) (-7) ];
+    shadowOffsets = [
+      (-7)
+      (-7)
+    ];
     shadowOpacity = 0.6;
     shadowExclude = [
       "name = 'Notification'"
@@ -14,7 +17,10 @@
     ];
 
     fade = true;
-    fadeSteps = [ 0.03 0.03 ];
+    fadeSteps = [
+      0.03
+      0.03
+    ];
 
     settings = {
       corner-radius = 8;
