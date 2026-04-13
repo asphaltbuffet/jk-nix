@@ -7,6 +7,12 @@
   ];
   networking.hostName = "wungus";
 
+  # Force i915 for Intel GPU — xe claims this device ID but doesn't support it yet
+  boot.kernelParams = [
+    "i915.force_probe=a788"
+    "xe.force_probe=!a788"
+  ];
+
   # System 76 adder-ws specific hardware configuration
   # including nvidia and system76 firmware
   services.xserver.videoDrivers = [
