@@ -295,7 +295,7 @@ in
           notification = false;
         }
         {
-          command = "i3-msg 'workspace ${ws3}; exec ${pkgs.alacritty}/bin/alacritty'";
+          command = "i3-msg 'workspace ${ws3}; exec ${pkgs.alacritty}/bin/alacritty -e ${pkgs.zellij}/bin/zellij --layout nix-config'";
           notification = false;
         }
         {
