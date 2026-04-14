@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.zellij = {
     enable = true;
@@ -10,15 +11,22 @@
 
   xdg.configFile."zellij/layouts/nix-config.kdl".text = ''
     layout {
-        tab name="nix config" cwd="/home/jack/code/github.com/jack-kelly/nix-config" focus=true {
+        default_tab_template {
             pane size=1 borderless=true {
                 plugin location="tab-bar"
             }
-            pane
+            children
             pane size=1 borderless=true {
                 plugin location="status-bar"
             }
         }
+        tab name="nix config" cwd="/home/jack/code/github.com/jack-kelly/nix-config" focus=true
     }
   '';
+
+  xdg.configFile."zellij/layouts/nix-config.swap.kdl".text = builtins.readFile (
+    pkgs.runCommand "zellij-default-swap-layout" { } ''
+      ${pkgs.zellij}/bin/zellij setup --dump-swap-layout default > $out
+    ''
+  );
 }
