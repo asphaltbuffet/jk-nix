@@ -7,10 +7,14 @@
   ];
   networking.hostName = "wungus";
 
-  # Force i915 for Intel GPU — xe claims this device ID but doesn't support it yet
   boot.kernelParams = [
+    # Force i915 for Intel GPU — xe claims this device ID but doesn't support it yet
     "i915.force_probe=a788"
     "xe.force_probe=!a788"
+    # Prevent PCIe port power management from leaving the dGPU link in a degraded
+    # state (Gen 1 / 2.5 GT/s) at boot, which causes intermittent nvidia init failures
+    "pcie_port_pm=off"
+    "pcie_aspm=off"
   ];
 
   # System 76 adder-ws specific hardware configuration
