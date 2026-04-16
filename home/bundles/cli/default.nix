@@ -36,6 +36,7 @@
     arp-scan
     bandwhich
     hping
+    fping
     iperf3
     just
     jq
