@@ -64,6 +64,7 @@
   services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
 
   system.stateVersion = "24.11";
 }
