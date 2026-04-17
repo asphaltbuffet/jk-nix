@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 {
   home.packages =
     (with pkgs; [
@@ -11,7 +11,7 @@
       saleae-logic
       gemini-cli
     ])
-    ++ (with pkgs-stable; [
+    ++ (with pkgs; [
       slack
     ]);
 }

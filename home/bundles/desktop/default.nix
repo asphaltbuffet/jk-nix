@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./alacritty.nix
@@ -27,7 +27,7 @@
       nerd-fonts.inconsolata
       nerd-fonts.fira-code
     ])
-    ++ (with pkgs-stable; [
+    ++ (with pkgs; [
       discord
       obsidian
       spotify

@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   lib,
   ...
 }:
@@ -279,11 +278,11 @@ in
 
         # Autostart apps
         {
-          command = "${pkgs-stable.obsidian}/bin/obsidian";
+          command = "${pkgs.obsidian}/bin/obsidian";
           notification = false;
         }
         {
-          command = "${pkgs-stable.discord}/bin/discord";
+          command = "${pkgs.discord}/bin/discord";
           notification = false;
         }
         {
@@ -291,7 +290,7 @@ in
           notification = false;
         }
         {
-          command = "${pkgs-stable.spotify}/bin/spotify";
+          command = "${pkgs.spotify}/bin/spotify";
           notification = false;
         }
         {
@@ -303,7 +302,7 @@ in
           notification = false;
         }
         {
-          command = "${pkgs-stable.slack}/bin/slack";
+          command = "${pkgs.slack}/bin/slack";
           notification = false;
         }
       ];
