@@ -33,10 +33,6 @@
             chip = "*-isa-*";
           }
           {
-            block = "nvidia_gpu";
-            format = " $icon $utilization $temperature ";
-          }
-          {
             block = "sound";
             format = " $icon $volume ";
           }

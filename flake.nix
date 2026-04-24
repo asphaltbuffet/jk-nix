@@ -13,6 +13,7 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +45,10 @@
           inherit system;
           config.allowUnfree = true;
         };
-      diskoHosts = [ "wungus" ];
+      diskoHosts = [
+        "wungus"
+        "wax-quail"
+      ];
       mkHost =
         hostname:
         nixpkgs.lib.nixosSystem {
@@ -106,7 +110,13 @@
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = perSystem (pkgs: import ./shell.nix { inherit pkgs; });
 
-      nixosConfigurations = nixpkgs.lib.genAttrs [ "wungus" "ues-safe-travels" "hopoo" "bungus" ] mkHost;
+      nixosConfigurations = nixpkgs.lib.genAttrs [
+        "wungus"
+        "wax-quail"
+        "ues-safe-travels"
+        "hopoo"
+        "bungus"
+      ] mkHost;
 
       packages.x86_64-linux =
         let

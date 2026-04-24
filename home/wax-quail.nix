@@ -4,7 +4,6 @@
     ./global
     ./bundles/desktop
     ./bundles/i3
-    ./bundles/nvidia
     ./bundles/work
   ];
 }
