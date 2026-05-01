@@ -25,8 +25,12 @@ update-switch:
 update:
     nix flake update
 
-# Garbage collect old generations
+# Garbage collect old generations (preserves direnv gcroots)
 clean:
+    nh clean all --keep 3 --no-gcroots
+
+# Garbage collect everything, including direnv gcroots
+clean-all:
     nh clean all --keep 3
 
 # Format nix files
