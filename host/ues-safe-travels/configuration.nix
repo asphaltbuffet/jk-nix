@@ -34,5 +34,10 @@
     };
   };
 
+  # Workaround for noisetorch on pipewire >= 1.6.3: pipewire's filter-graph
+  # LADSPA loader now rejects absolute paths outside $LADSPA_PATH, but
+  # noisetorch dumps librnnoise to /tmp. See noisetorch/NoiseTorch#467.
+  systemd.user.services.pipewire-pulse.environment.LADSPA_PATH = "/tmp";
+
   system.stateVersion = "25.05";
 }
