@@ -1,7 +1,27 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./global
     ./bundles/desktop
+    ./bundles/i3
+  ];
+
+  local.i3.startupApps = [
+    {
+      command = "${pkgs.obsidian}/bin/obsidian";
+      notification = false;
+    }
+    {
+      command = "${pkgs.spotify}/bin/spotify";
+      notification = false;
+    }
+    {
+      command = "i3-msg 'workspace 3; exec ${pkgs.alacritty}/bin/alacritty'";
+      notification = false;
+    }
+    {
+      command = "${pkgs.firefox}/bin/firefox";
+      notification = false;
+    }
   ];
 }

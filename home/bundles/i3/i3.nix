@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 let
@@ -25,7 +26,13 @@ let
   ws10 = "10: music";
 in
 {
-  xsession.windowManager.i3 = {
+  options.local.i3.startupApps = lib.mkOption {
+    type = lib.types.listOf lib.types.attrs;
+    default = [ ];
+    description = "Per-host i3 autostart applications, appended to infrastructure startup.";
+  };
+
+  config.xsession.windowManager.i3 = {
     enable = true;
     config = {
       modifier = mod;
@@ -275,37 +282,8 @@ in
           command = "feh --bg-fill ~/.config/wallpaper";
           notification = false;
         }
-
-        # Autostart apps
-        {
-          command = "${pkgs.obsidian}/bin/obsidian";
-          notification = false;
-        }
-        {
-          command = "${pkgs.discord}/bin/discord";
-          notification = false;
-        }
-        {
-          command = "${pkgs.signal-desktop}/bin/signal-desktop";
-          notification = false;
-        }
-        {
-          command = "${pkgs.spotify}/bin/spotify";
-          notification = false;
-        }
-        {
-          command = "i3-msg 'workspace ${ws3}; exec ${pkgs.alacritty}/bin/alacritty'";
-          notification = false;
-        }
-        {
-          command = "${pkgs.firefox}/bin/firefox";
-          notification = false;
-        }
-        {
-          command = "${pkgs.slack}/bin/slack";
-          notification = false;
-        }
-      ];
+      ]
+      ++ config.local.i3.startupApps;
     };
   };
 }

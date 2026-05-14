@@ -1,9 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./global
     ./bundles/desktop
     ./bundles/i3
+    ./bundles/i3/autorandr.nix
     ./bundles/nvidia
     ./bundles/work
   ];
@@ -13,4 +14,35 @@
     mode = "1920x1080";
     rate = "144.00";
   };
+
+  local.i3.startupApps = [
+    {
+      command = "${pkgs.obsidian}/bin/obsidian";
+      notification = false;
+    }
+    {
+      command = "${pkgs.discord}/bin/discord";
+      notification = false;
+    }
+    {
+      command = "${pkgs.signal-desktop}/bin/signal-desktop";
+      notification = false;
+    }
+    {
+      command = "${pkgs.spotify}/bin/spotify";
+      notification = false;
+    }
+    {
+      command = "i3-msg 'workspace 3; exec ${pkgs.alacritty}/bin/alacritty'";
+      notification = false;
+    }
+    {
+      command = "${pkgs.firefox}/bin/firefox";
+      notification = false;
+    }
+    {
+      command = "${pkgs.slack}/bin/slack";
+      notification = false;
+    }
+  ];
 }
