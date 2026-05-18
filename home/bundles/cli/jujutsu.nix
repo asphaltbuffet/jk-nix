@@ -10,7 +10,10 @@
           user.email = "jpk.lly@gmail.com";
         }
         {
-          "--when".repositories = [ "~/code/github.com/utilidata/" ];
+          "--when".repositories = [
+            "~/code/github.com/utilidata/"
+            "~/code/github.com/jack-utilidata/"
+          ];
           user.email = "jkelly@utilidata.com";
         }
       ];
