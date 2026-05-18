@@ -23,5 +23,13 @@
       command = "${pkgs.firefox}/bin/firefox";
       notification = false;
     }
+    {
+      command = "${pkgs.discord}/bin/discord";
+      notification = false;
+    }
+    {
+      command = "${pkgs.signal-desktop}/bin/signal-desktop";
+      notification = false;
+    }
   ];
 }
