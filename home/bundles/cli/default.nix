@@ -25,6 +25,7 @@
     bottom
     difftastic
     dig
+    dnsmasq
     eza
     fd
     fzf
