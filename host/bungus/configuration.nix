@@ -20,6 +20,7 @@
     lz4
     netcat-openbsd
     openssl
+    parted # partprobe, used by baja-yocto's initrd-flash
     (python3.withPackages (p: [ p.pyyaml ]))
     rsync
     sshpass
@@ -31,4 +32,17 @@
   services.nfs.server.enable = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   programs.nix-ld.enable = true;
+
+  # baja-yocto's initrd-flash uses udisksctl to mount/unmount the
+  # in-target USB storage device exposed during programming. Needs the
+  # daemon (this option) and the CLI (provided by the same package).
+  # See ~/code/github.com/utilidata/baja-yocto/NIX.md
+  services.udisks2.enable = true;
+
+  # Prevent desktop file managers from auto-mounting the in-target USB
+  # block device while initrd-flash is using it. Declarative equivalent
+  # of baja-yocto's tools/fix_automount.sh.
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="block", ENV{UDISKS_AUTO}="0"
+  '';
 }
