@@ -2,18 +2,18 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       personalgit = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_github_jack-kelly";
-        identitiesOnly = true;
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "~/.ssh/id_github_jack-kelly";
+        IdentitiesOnly = true;
       };
       workgit = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-        identitiesOnly = true;
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519";
+        IdentitiesOnly = true;
       };
     };
     includes = [ "~/.ssh/config.work" ];
