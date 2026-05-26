@@ -16,6 +16,14 @@
         padding.y = 10;
         decorations = "buttonless";
       };
+
+      keyboard.bindings = [
+        {
+          key = "Return";
+          mods = "Shift";
+          chars = builtins.fromJSON ''"\u001B\r"'';
+        }
+      ];
     };
   };
 }
