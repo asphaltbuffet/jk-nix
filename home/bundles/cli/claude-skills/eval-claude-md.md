@@ -1,3 +1,7 @@
+---
+name: eval-claude-md
+---
+
 # Evaluate CLAUDE.md effectiveness
 
 Measure the impact of the project's CLAUDE.md on exploration efficiency by running controlled A/B experiments with subagents.
