@@ -4,6 +4,16 @@
   ...
 }:
 let
+  skillsDir = ./claude-skills;
+  mkSkill =
+    file:
+    lib.nameValuePair ".claude/skills/${lib.removeSuffix ".md" file}/SKILL.md" {
+      source = skillsDir + "/${file}";
+    };
+  skills = lib.listToAttrs (
+    map mkSkill (lib.filter (lib.hasSuffix ".md") (builtins.attrNames (builtins.readDir skillsDir)))
+  );
+
   claudeSettings = pkgs.writeText "claude-settings.json" (
     builtins.toJSON {
       permissions = {
@@ -63,16 +73,16 @@ let
   );
 in
 {
-  home.file.".claude/skills/eval-claude-md/SKILL.md".source = ./claude-skills/eval-claude-md.md;
+  home.file = skills // {
+    ".claude/CLAUDE.md".text = ''
+      All repos live under ~/code/ with paths matching the git remote URL.
+      For example, the repo `github.com/<org>/<repo>` is cloned to `~/code/github.com/<org>/<repo>`.
 
-  home.file.".claude/CLAUDE.md".text = ''
-    All repos live under ~/code/ with paths matching the git remote URL.
-    For example, the repo `github.com/<org>/<repo>` is cloned to `~/code/github.com/<org>/<repo>`.
-
-    For repos under ~/code/github.com/utilidata: only some developers on the team use Nix. Default documentation and setup instructions should target a standard Ubuntu/Debian-like environment. Nix flakes should be kept correct and up to date, but documented as an alternative path, not the primary one.
-    Format code after making changes (e.g. cargo fmt). Use `make commitready` or similar if available.
-    Prefer jj over git.
-  '';
+      For repos under ~/code/github.com/utilidata: only some developers on the team use Nix. Default documentation and setup instructions should target a standard Ubuntu/Debian-like environment. Nix flakes should be kept correct and up to date, but documented as an alternative path, not the primary one.
+      Format code after making changes (e.g. cargo fmt). Use `make commitready` or similar if available.
+      Prefer jj over git.
+    '';
+  };
 
   home.activation.claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD install -Dm644 ${claudeSettings} $HOME/.claude/settings.json
